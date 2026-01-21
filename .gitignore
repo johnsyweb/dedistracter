@@ -17,3 +17,7 @@ build/
 .idea/
 .pytest_cache/
 __pycache__/
+
+# Node/npm
+node_modules/
+package-lock.json
