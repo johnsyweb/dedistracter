@@ -1,3 +1,10 @@
+# 1.0.0 (2026-01-21)
+
+
+### Bug Fixes
+
+* niggles in the field ([c3add8a](https://github.com/johnsyweb/dedistracter/commit/c3add8ac8cc3fb02308a159918bfe74c14926933))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
