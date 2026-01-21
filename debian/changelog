@@ -1,0 +1,8 @@
+dedistracter (1.0.0) focal; urgency=medium
+
+  * Initial release
+  * Support for Pi Hole v6
+  * Configurable scheduling via environment variables
+  * Debian package for Raspbian
+
+ -- Pete Johns <paj+dedistracter@johnsy.com>  Mon, 21 Jan 2026 00:00:00 +0000

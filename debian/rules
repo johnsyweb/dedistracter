@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	echo "No building required"
+
+override_dh_auto_install:
+	# Create installation directories
+	mkdir -p debian/dedistracter/opt/dedistracter
+	mkdir -p debian/dedistracter/etc/default
+	
+	# Install scripts
+	install -m 755 block-distractions.sh debian/dedistracter/opt/dedistracter/
+	install -m 755 unblock-distractions.sh debian/dedistracter/opt/dedistracter/
+	install -m 755 test-dedistracter.sh debian/dedistracter/opt/dedistracter/
+	install -m 755 dedistracter-cron-generator debian/dedistracter/opt/dedistracter/
+	
+	# Install default configuration
+	install -m 644 debian/dedistracter.default debian/dedistracter/etc/default/dedistracter

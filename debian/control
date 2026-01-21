@@ -1,0 +1,23 @@
+Source: dedistracter
+Section: admin
+Priority: optional
+Maintainer: Pete Johns <paj+dedistracter@johnsy.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.1
+Homepage: https://github.com/johnsyweb/dedistracter
+Rules-Requires-Root: no
+
+Package: dedistracter
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, sqlite3, bash (>= 4.0)
+Recommends: pi-hole
+Description: Pi Hole v6+ distraction blocker with scheduling
+ Dedistracter provides automated scheduling to block and unblock distracting
+ websites using Pi Hole v6+ on a Raspberry Pi. Domains can be blocked during
+ work hours and automatically unblocked during personal time.
+ .
+ Features:
+  - Simple bash scripts for blocking/unblocking domains
+  - Cron-based scheduling with configurable times
+  - Environment variable configuration
+  - Purpose-built for Pi Hole v6+

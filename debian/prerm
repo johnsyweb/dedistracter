@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+if [ "$1" = "remove" ]; then
+    # Remove cron entries on package removal
+    if crontab -l 2>/dev/null | grep -q "dedistracter"; then
+        (crontab -l 2>/dev/null | grep -v "dedistracter" | grep -v "# Dedistracter" | grep -v "block-distractions\|unblock-distractions") | crontab - || true
+        echo "Cron jobs removed."
+    fi
+fi

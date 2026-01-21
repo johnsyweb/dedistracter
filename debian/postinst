@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+
+if [ "$1" = "configure" ]; then
+    # Create crontab entries using the configuration
+    if [ -f /etc/default/dedistracter ]; then
+        . /etc/default/dedistracter
+    fi
+    
+    BLOCK_HOUR="${BLOCK_HOUR:-2}"
+    BLOCK_MINUTE="${BLOCK_MINUTE:-0}"
+    UNBLOCK_HOUR="${UNBLOCK_HOUR:-20}"
+    UNBLOCK_MINUTE="${UNBLOCK_MINUTE:-0}"
+    
+    # Check if cron entries already exist
+    if ! crontab -l 2>/dev/null | grep -q "dedistracter"; then
+        # Generate new crontab with dedistracter entries
+        (crontab -l 2>/dev/null || echo ""; 
+         echo "# Dedistracter - Pi Hole distraction blocking schedule";
+         echo "${BLOCK_MINUTE} ${BLOCK_HOUR} * * * /bin/bash -lc '/opt/dedistracter/block-distractions.sh'";
+         echo "${UNBLOCK_MINUTE} ${UNBLOCK_HOUR} * * * /bin/bash -lc '/opt/dedistracter/unblock-distractions.sh'") | crontab -
+        
+        echo "Cron jobs installed successfully."
+        echo "Configure times by editing /etc/default/dedistracter and reinstalling the package."
+    else
+        echo "Cron jobs already configured."
+    fi
+fi

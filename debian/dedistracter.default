@@ -1,0 +1,17 @@
+# Configuration for dedistracter
+# These environment variables control when domains are blocked/unblocked
+
+# Hour to block distractions (24-hour format: 0-23)
+BLOCK_HOUR=2
+
+# Minute to block distractions (0-59)
+BLOCK_MINUTE=0
+
+# Hour to unblock distractions (24-hour format: 0-23)
+UNBLOCK_HOUR=20
+
+# Minute to unblock distractions (0-59)
+UNBLOCK_MINUTE=0
+
+# Path to Pi Hole gravity database
+PIHOLE_DB_PATH=/etc/pihole/gravity.db
