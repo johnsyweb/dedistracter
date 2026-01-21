@@ -75,13 +75,18 @@ Add these as adlists or via the API, ensuring each has the comment set to `sched
 The package installs a cron job template. Configure the blocking/unblocking times using environment variables:
 
 ```bash
-# Set in /etc/default/dedistracter (created by package)
-# Default: Block at 02:00, Unblock at 20:00
+Edit `/etc/default/dedistracter` (created by the package) to set your schedule. For example:
 
 BLOCK_HOUR=2
 BLOCK_MINUTE=0
 UNBLOCK_HOUR=20
 UNBLOCK_MINUTE=0
+
+After editing, run:
+```bash
+sudo /opt/dedistracter/dedistracter-cron-generator
+```
+Your new schedule will take effect automatically. **Note:** `/etc/default/dedistracter` is a Debian conffile, so your changes will be preserved during package upgrades.
 ```
 
 Or manually add to crontab:
