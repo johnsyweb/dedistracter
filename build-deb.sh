@@ -98,5 +98,5 @@ ls -lh "$OUTPUT_DIR"/ 2>/dev/null | tail -n +2
 
 echo ""
 echo "To install on your Raspberry Pi:"
-echo "  scp $OUTPUT_DIR/*.deb pi@raspberrypi.local:/tmp/"
-echo "  ssh pi@raspberrypi.local sudo dpkg -i /tmp/*.deb"
+echo "  scp $OUTPUT_DIR/*.deb root@pi.hole:/tmp/"
+echo "  ssh root@pi.hole dpkg -i '/tmp/*.deb'"

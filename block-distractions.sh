@@ -34,8 +34,7 @@ sqlite3 "$PIHOLE_DB_PATH" "UPDATE domainlist SET enabled = 1 WHERE comment = 'sc
 
 # Force Pi Hole to reload the gravity database
 if command -v pihole &> /dev/null; then
-    # Use restartdns which forces a full reload
-    pihole restartdns reload-lists &> /dev/null || pihole restartdns &> /dev/null || sudo systemctl restart pihole-FTL 2>/dev/null || true
+    pihole reloaddns
 else
     # If pihole command not available, restart FTL directly
     sudo systemctl restart pihole-FTL 2>/dev/null || true
